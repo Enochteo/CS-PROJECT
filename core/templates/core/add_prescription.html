@@ -1,0 +1,80 @@
+{% load form_filters %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Prescription</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="fixed-top bg-white shadow-sm">
+  <div class="container py-3">
+    <h3 class="mb-0">Prescribing for {{ patient.name }}</h3>
+  </div>
+</header>
+
+<main class="container" style="padding-top: 100px;">
+  <form method="post" class="row g-3">
+    {% csrf_token %}
+
+    <div class="col-md-6">
+      <label class="form-label">Medication Name</label>
+      {{ form.medication_name|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Dosage</label>
+      {{ form.dosage|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Frequency</label>
+      {{ form.frequency|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Pharmacy</label>
+      {{ form.pharmacy|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Route</label>
+      {{ form.route|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Directions</label>
+      {{ form.directions|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Days Supply</label>
+      {{ form.days_supply|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Dispense Unit</label>
+      {{ form.dispense_unit|add_class:"form-control" }}
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Status</label>
+      {{ form.status|add_class:"form-control" }}
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Comments</label>
+      {{ form.comments|add_class:"form-control" }}
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Submit Prescription</button>
+      <a href="{% url 'patient_detail' patient.id %}" class="btn btn-secondary ms-2">Cancel</a>
+    </div>
+  </form>
+</main>
+
+</body>
+</html>

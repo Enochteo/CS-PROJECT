@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% load form_filters %}
+
+{% block title %}Edit Prescription{% endblock %}
+
+{% block content %}
+<h2>Edit Prescription for {{ prescription.patient.name }}</h2>
+<form method="post" class="row g-3">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary">Save</button>
+  <a class="btn btn-secondary" href="{% url 'patient_detail' prescription.patient.id %}">Cancel</a>
+</form>
+{% endblock %}
