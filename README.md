@@ -1,4 +1,4 @@
-# CS-PHARMACY – Mini Virtual Hospital System
+# CS-PHARMACY 
 
 This Django-based pharmacy module is part of a virtual 
 hospital system for educational purposes. It simulates 
