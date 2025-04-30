@@ -43,7 +43,8 @@ class Prescription(models.Model):
     comments = models.TextField(blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)
-    price = models.FloatField(default=0.0)
+    #price = models.FloatField(default=0.0)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return f"{self.medication_name} for {self.patient.name}"

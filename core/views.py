@@ -4,7 +4,7 @@ from .models import Patient, Prescription
 from .forms import UserRegistrationForm
 from django.contrib.auth import login
 from django.shortcuts import get_object_or_404
-from .utils import is_controlled_substance, substitute_drug, get_price, pharmacy_lookup
+from .utils import is_controlled_substance, substitute_drug, calculate_price, pharmacy_lookup
 
 # Create your views here.
 
@@ -39,28 +39,33 @@ def patient_detail(request, patient_id):
         'prescriptions': prescriptions})
 
 def add_prescription(request, patient_id):
-    from django.http import HttpResponse
-    patient = Patient.objects.get(id=patient_id)
+    patient = get_object_or_404(Patient, id=patient_id)
 
     if request.method == 'POST':
         form = PrescriptionForm(request.POST)
         if form.is_valid():
             prescription = form.save(commit=False)
             prescription.patient = patient
+
+            med_name = prescription.medication_name
+
+            # Substitute if it's controlled
+            if is_controlled_substance(med_name):
+                prescription.medication_name = substitute_drug(med_name)
+
+            # Set the price
+            prescription.price = calculate_price(prescription.medication_name)
+
             prescription.save()
-            print("Redirecting to patient detail for ID:", patient.id)
             return redirect('patient_detail', patient_id=patient.id)
         else:
             print("Form is invalid")
             print(form.errors)
-    else:    
+    else:
         form = PrescriptionForm()
-    if is_controlled_substance(form.cleaned_data['medication_name']):
-        form.instance.medication_name = substitute_drug(form.cleaned_data['medication_name'])
-    form.instance.price = get_price(form.instance.medication_name)
 
     return render(request, 'core/add_prescription.html', {'form': form, 'patient': patient})
-    
+
 def register_user(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
