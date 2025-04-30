@@ -1,6 +1,6 @@
 # CS-PHARMACY 
 
-This Django-based pharmacy module is part of a virtual 
+This Django-based pharmacy module is a part to a virtual 
 hospital system for educational purposes. It simulates 
 basic healthcare functionalities such as managing 
 prescriptions, checking controlled drugs, and validating 
