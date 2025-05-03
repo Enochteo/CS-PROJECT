@@ -23,7 +23,7 @@ def new_patient(request):
         form = PatientForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('register_patient')  # You can change this later
+            return redirect('register_patient')  
     else:
         form = PatientForm()
 

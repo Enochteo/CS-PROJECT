@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -132,13 +132,13 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [BASE_DIR / 'core' /'static']
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For testing
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  
 DEFAULT_FROM_EMAIL = 'no-reply@cspharmacy.com'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-# Optional timeout settings
+
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -148,4 +148,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'enochowoade@gmail.com'
 EMAIL_HOST_PASSWORD = 'kpvf ygot unyr khsz'
 DEFAULT_FROM_EMAIL = 'CS Pharmacy <enochowoade@gmail.com>'
-
+STATIC_ROOT = BASE_DIR / "staticfiles"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
