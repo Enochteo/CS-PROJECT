@@ -1,0 +1,90 @@
+body {
+  background: linear-gradient(to right, #f8f9fa, #fdfdfd);
+}
+
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #0d6efd;
+  }
+  
+  .table th {
+    background-color: #f1f1f1;
+  }
+  
+  .btn {
+    border-radius: 8px;
+  }
+  .text-center img {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-lg {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-lg:hover {
+    transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+  }
+  form .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+    border-color: #198754;
+  }
+  
+  .invalid-feedback {
+    font-size: 0.875rem;
+  }
+  
+  .navbar {
+    border-radius: 0.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-outline-primary:hover {
+    color: white;
+    background-color: #0d6efd;
+  }
+  
+  .btn-outline-danger:hover {
+    color: white;
+    background-color: #dc3545;
+  }
+  
+  .doctors-img {
+    max-width: 350px;
+    width: 90%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+  }
+  .doctors-img:hover {
+    transform: scale(1.03);
+  }
+/* Fade-in animation */
+.fade-in-bottom {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 768px) {
+  .pharmacist-img {
+    max-width: 450px;
+  }
+}

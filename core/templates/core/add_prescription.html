@@ -8,7 +8,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  
 <header class="fixed-top bg-white shadow-sm">
   <div class="container py-3">
     <h3 class="mb-0">Prescribing for {{ patient.name }}</h3>

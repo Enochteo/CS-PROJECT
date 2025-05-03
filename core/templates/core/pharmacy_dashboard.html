@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+{% block title %}Pharmacy Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Pharmacy Dashboard</h2>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% if prescriptions %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Medication</th>
+      <th>Dosage</th>
+      <th>Instructions</th>
+      <th>Sent</th>
+      <th>Verified</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in prescriptions %}
+    <tr>
+      <td>{{ p.patient.name }}</td>
+      <td>{{ p.medication_name }}</td>
+      <td>{{ p.dosage }}</td>
+      <td>{{ p.instructions }}</td>
+      <td>
+        {% if p.sent_to_pharmacy %}
+          ✅
+        {% else %}
+          ❌
+        {% endif %}
+      </td>
+      <td>
+        {% if p.verified_by_pharmacy %}
+          <span class="badge bg-success">Verified</span>
+        {% else %}
+          <span class="badge bg-warning text-dark">Pending</span>
+        {% endif %}
+      </td>
+      <td>
+        {% if not p.verified_by_pharmacy %}
+        <form action="{% url 'verify_prescription' p.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-success">Verify</button>
+        </form>        
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No prescriptions have been sent to the pharmacy yet.</p>
+{% endif %}
+{% endblock %}

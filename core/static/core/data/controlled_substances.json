@@ -1,0 +1,73 @@
+[
+    {
+        "substance": "Fentanyl",
+        "cs_schedule": "II",
+        "narcotic": "Y",
+        "other_names": [
+            "Duragesic",
+            "Oralet",
+            "Actiq",
+            "Sublimaze",
+            "Innovar"
+        ]
+    },
+    {
+        "substance": "Oxycodone",
+        "cs_schedule": "II",
+        "narcotic": "Y",
+        "other_names": [
+            "OxyContin",
+            "Roxicodone",
+            "Percocet"
+        ]
+    },
+    {
+        "substance": "Morphine",
+        "cs_schedule": "II",
+        "narcotic": "Y",
+        "other_names": [
+            "MS Contin",
+            "Kadian",
+            "Duramorph"
+        ]
+    },
+    {
+        "substance": "Hydrocodone",
+        "cs_schedule": "II",
+        "narcotic": "Y",
+        "other_names": [
+            "Vicodin",
+            "Lortab",
+            "Norco"
+        ]
+    },
+    {
+        "substance": "Codeine",
+        "cs_schedule": "II",
+        "narcotic": "Y",
+        "other_names": [
+            "Tylenol with Codeine",
+            "Empirin"
+        ]
+    },
+    {
+        "substance": "Alprazolam",
+        "schedule": "IV",
+        "other_names": ["Xanax", "Niravam"]
+    },
+    {
+        "substance": "Amphetamine",
+        "schedule": "II",
+        "other_names": ["Adderall", "Evekeo", "Dyanavel XR"]
+    },
+    {
+        "substance": "Buprenorphine",
+        "schedule": "III",
+        "other_names": ["Subutex", "Suboxone"]
+    },
+    {
+        "substance": "Chlordiazepoxide",
+        "schedule": "IV",
+        "other_names": ["Librium"]
+    }
+]

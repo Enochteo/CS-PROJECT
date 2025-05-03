@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+
+{% block title %}Logged Out - CS-Pharmacy{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+  <h1>You have been logged out</h1>
+  <p class="lead">Thanks for using the EEVA Pharmacy system.</p>
+  <a href="{% url 'login' %}" class="btn btn-primary mt-3">Login Again</a>
+</div>
+{% endblock %}

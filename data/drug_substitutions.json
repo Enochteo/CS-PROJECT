@@ -1,0 +1,34 @@
+[
+    {
+        "original": "Morphine",
+        "substitute": "Acetaminophen",
+        "reason": "Controlled substance. Substitute with non-opioid for pain management."
+    },
+    {
+        "original": "Oxycodone",
+        "substitute": "Ibuprofen",
+        "reason": "Controlled substance. Substitute with NSAID where possible."
+    },
+    {
+        "original": "Adderall",
+        "substitute": "Modafinil",
+        "reason": "Controlled substance. Substitute with alternative stimulant."
+    },
+    {
+        "original": "Xanax",
+        "substitute": "Buspirone",
+        "reason": "Controlled substance. Substitute with non-benzodiazepine anxiolytic."
+    },
+    {
+        "original": "Valium",
+        "substitute": "Hydroxyzine",
+        "reason": "Controlled substance. Substitute with antihistamine-based anxiolytic."
+    },   {
+        "original": "Codeine",
+        "substitute": "Dextromethorphan"
+      },
+      {
+        "original": "Oxycodone",
+        "substitute": "Naproxen"
+      }
+]

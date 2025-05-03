@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Patient(models.Model):
     name = models.CharField(max_length=100)
+    email = models.EmailField(default='placeholder@example.com')
     date_of_birth = models.DateField()
     contact = models.CharField(max_length=50)
     address = models.TextField()
@@ -39,12 +40,17 @@ class Prescription(models.Model):
     dispense_unit = models.CharField(max_length=50)
     days_supply = models.IntegerField(null=True, blank=True)
     exp_date = models.DateField(null=True, blank=True)
-    controlled = models.BooleanField(null=True, blank=True)
+    controlled = models.BooleanField(null=True, blank=True, default=False)
     comments = models.TextField(blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)
     #price = models.FloatField(default=0.0)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    sent_to_pharmacy = models.BooleanField(default=False)
+    verified_by_pharmacy = models.BooleanField(default=False)
+    verified_at = models.DateTimeField(null=True, blank=True)
+    was_substituted = models.BooleanField(default=False)
+
 
     def __str__(self):
         return f"{self.medication_name} for {self.patient.name}"

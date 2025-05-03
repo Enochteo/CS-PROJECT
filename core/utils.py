@@ -1,7 +1,11 @@
 import csv
 import json
+import os
+from django.conf import settings
+from django.core.mail import send_mail
 
-CONTROLLED_DRUGS_LIST = [
+
+"""CONTROLLED_DRUGS_LIST = [
     "amphetamines", "fentanyl", "morphine", "oxycodone", "hydrocodone", "adderall"
 ]
 
@@ -11,7 +15,7 @@ SUBSTITUTES = {
     "oxycodone": "naproxen",
     "hydrocodone": "tramadol",
     "adderall": "atomoxetine"
-}
+}"""
 
 DRUG_PRICES = {
     "acetaminophen": 10.00,
@@ -28,13 +32,26 @@ DRUG_PRICES = {
     "Default": 9.99 
 }
 
+def load_controlled_substances():
+    path = os.path.join(settings.BASE_DIR, 'core', 'controlled_substances.json')
+    with open(path, 'r') as f:
+        return json.load(f)
 
+def load_substitution_data():
+    path = os.path.join(settings.BASE_DIR, 'data', 'drug_substitutions.json')
+    with open(path, 'r') as file:
+        return json.load(file)
 
 def is_controlled_substance(drug_name):
-    return drug_name.lower() in CONTROLLED_DRUGS_LIST
+    data = load_substitution_data()
+    return any(d['original'].lower() == drug_name.lower() for d in data)
 
 def substitute_drug(drug_name):
-    return SUBSTITUTES.get(drug_name.lower(), drug_name)
+    data = load_substitution_data()
+    for d in data:
+        if d['original'].lower() == drug_name.lower():
+            return d['substitute']
+    return drug_name
 
 def calculate_price(drug_name):
     return DRUG_PRICES.get(drug_name, DRUG_PRICES['Default'])
@@ -60,3 +77,22 @@ def process_prescription_csv(file_path):
             row['price'] = calculate_price(row['substituted'])
             updated.append(row)
     return updated
+
+def send_prescription_email(patient_email, patient_name, prescription):
+    subject = f"Your Prescription from CS-Pharmacy"
+    message = f"""
+Hello {patient_name},
+
+Your prescription for {prescription.medication_name} has been prepared.
+
+Details:
+- Dosage: {prescription.dosage}
+- Directions: {prescription.directions}
+- Price: ${prescription.price}
+
+Please contact us if you have questions.
+
+Best regards,  
+CS-Pharmacy Team
+"""
+    send_mail(subject, message, None, [patient_email])

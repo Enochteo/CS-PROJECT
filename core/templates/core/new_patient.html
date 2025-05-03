@@ -1,14 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>New Patient Registration</title>
-</head>
-<body>
-    <h1>Register New Patient</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
-</body>
-</html>
+{% extends "core/base.html" %}
+{% load static %}
+{% load form_filters %}  {# Make sure this is loaded if using add_class filter #}
+
+{% block title %}Register New Patient{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-lg border-0 rounded p-4 mt-4">
+        <h2 class="text-center mb-2 fw-bold">Register New Patient</h2>
+        <p class="text-muted text-center mb-4">Fill out the form to add a new patient to the system.</p>
+
+        <form method="POST" class="row g-3 needs-validation" novalidate>
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="col-md-6">
+              <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+              {{ field|add_class:"form-control" }}
+              {% if field.errors %}
+                <div class="invalid-feedback d-block">{{ field.errors.0 }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <div class="col-12 mt-3 text-center">
+            <button type="submit" class="btn btn-success px-5">Register</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary ms-3">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Bootstrap client-side validation
+(function () {
+  'use strict'
+  const forms = document.querySelectorAll('.needs-validation');
+  Array.from(forms).forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>
+{% endblock %}

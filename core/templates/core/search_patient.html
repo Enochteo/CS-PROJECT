@@ -1,21 +1,59 @@
-<h1>Search Patients</h1>
+{% extends "core/base.html" %}
+{% load static %}
 
-<form method="get">
-    <input type="text" name="q" placeholder="Enter patient name">
-    <button type="submit">Search</button>
+{% block title %}Search Patients{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4">
+  <h2 class="fw-bold">Search Patients</h2>
+  <p class="text-muted">Enter the name of a patient to retrieve their profile.</p>
+</div>
+
+<form method="get" class="row g-2 justify-content-center mb-4" id="searchForm">
+  <div class="col-auto">
+    <input type="text" name="q" class="form-control" placeholder="Enter patient name" id="searchInput" value="{{ request.GET.q }}">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
 </form>
 
 {% if results %}
-    <h2>Results:</h2>
-    <ul>
+  <div class="alert alert-success text-center">
+    <strong>{{ results|length }}</strong> result{{ results|pluralize }} found.
+  </div>
+  <ul class="list-group">
     {% for patient in results %}
-        <li>
-            <a href="{% url 'patient_detail' patient.id %}">
-                {{ patient.name }} ({{ patient.date_of_birth }})
-            </a>
-        </li>
+      <li class="list-group-item list-group-item-action">
+        <a href="{% url 'patient_detail' patient.id %}">
+          <strong>{{ patient.name }}</strong> — <small>DOB: {{ patient.date_of_birth }}</small>
+        </a>
+      </li>
     {% endfor %}
-    </ul>
+  </ul>
 {% elif request.GET.q %}
-    <p>No patients found.</p>
+  <div class="alert alert-warning text-center mt-4">
+    No patients found matching "<strong>{{ request.GET.q }}</strong>".
+  </div>
 {% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('searchInput');
+    if (input) input.focus();
+
+    // Optional fade-in effect
+    const listItems = document.querySelectorAll('.list-group-item');
+    listItems.forEach((item, index) => {
+      item.style.opacity = 0;
+      setTimeout(() => {
+        item.style.transition = 'opacity 0.4s ease-in';
+        item.style.opacity = 1;
+      }, index * 100);
+    });
+  });
+</script>
+{% endblock %}
+

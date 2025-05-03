@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ patient.name }} - Details</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container mt-5">
-  <h1>{{ patient.name }}</h1>
-  <p><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</p>
-  <p><strong>Contact:</strong> {{ patient.contact }}</p>
-  <p><strong>Address:</strong> {{ patient.address }}</p>
-  <p><strong>Insurance:</strong> {{ patient.insurance }}</p>
+{% extends "core/base.html" %}
+{% load static %}
 
-  <hr>
-  <h3>Prescriptions</h3>
+{% block title %}{{ patient.name }} - Details{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4">
+  <h2 class="mb-3">{{ patient.name }}</h2>
+  <ul class="list-group mb-4">
+    <li class="list-group-item"><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</li>
+    <li class="list-group-item"><strong>Contact:</strong> {{ patient.contact }}</li>
+    <li class="list-group-item"><strong>Address:</strong> {{ patient.address }}</li>
+    <li class="list-group-item"><strong>Insurance:</strong> {{ patient.insurance }}</li>
+  </ul>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Prescriptions</h4>
+    <a href="{% url 'add_prescription' patient.id %}" class="btn btn-sm btn-outline-primary">+ Add Prescription</a>
+  </div>
 
   {% if prescriptions %}
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Medication</th>
-          <th>Dosage</th>
-          <th>Frequency</th>
-          <th>Instructions</th>
-          <th>Price</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for p in prescriptions %}
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Medication</th>
+            <th>Dosage</th>
+            <th>Frequency</th>
+            <th>Instructions</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in prescriptions %}
           <tr>
             <td>{{ p.medication_name }}</td>
             <td>{{ p.dosage }}</td>
@@ -38,19 +41,46 @@
             <td>{{ p.instructions }}</td>
             <td>${{ p.price }}</td>
             <td>
+              {% if p.sent_to_pharmacy %}
+                <span class="badge bg-info text-dark">Sent</span>
+                {% if p.verified_by_pharmacy %}
+                  <span class="badge bg-success">Verified</span>
+                {% else %}
+                  <span class="badge bg-warning text-dark">Pending</span>
+                {% endif %}
+              {% else %}
+                <span class="badge bg-secondary">Not Sent</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if p.was_substituted %}
+                <span class="badge bg-warning text-dark">Substituted</span>
+              {% elif p.medication_name|lower in "codeine fentanyl morphine oxycodone hydrocodone adderall" %}
+                <span class="badge bg-danger">Controlled</span>
+              {% else %}
+                <span class="badge bg-secondary">Normal</span>
+              {% endif %}
+            </td>
+                        
+            <td>
               <a href="{% url 'edit_prescription' p.pk %}" class="btn btn-sm btn-warning">Edit</a>
               <a href="{% url 'delete_prescription' p.pk %}" class="btn btn-sm btn-danger">Delete</a>
+              {% if not p.sent_to_pharmacy %}
+              <form action="{% url 'send_to_pharmacy' p.pk %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-primary">Send to pharmacy</button>
+              </form>
+            {% endif %}
             </td>
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   {% else %}
     <p class="text-muted">No prescriptions added yet.</p>
   {% endif %}
 
-  <a href="{% url 'add_prescription' patient.id %}" class="btn btn-outline-primary">Add Prescription</a>
-  <a href="{% url 'search_patient' %}" class="btn btn-secondary ms-2">Back to Search</a>
+  <a href="{% url 'search_patient' %}" class="btn btn-outline-secondary mt-3">← Back to Search</a>
 </div>
-</body>
-</html>
+{% endblock %}
