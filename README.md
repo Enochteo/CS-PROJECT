@@ -79,23 +79,47 @@ A Django-based web application that allows **doctors** to manage patients, handl
 ---
 
 ## 🗂️ Project Structure
+```
+CS-PHARMACY/
+├── core/                         # Main Django app
+│   ├── admin.py                 # Admin configuration
+│   ├── apps.py                  # App configuration
+│   ├── forms.py                 # Django forms for patients and prescriptions
+│   ├── models.py                # Database models
+│   ├── urls.py                  # App-specific routes
+│   ├── utils.py                 # Utility functions (e.g., substitution, pricing)
+│   ├── views.py                 # Application views
+│   ├── templatetags/
+│   │   └── form_filters.py      # Custom template filters
+│   ├── migrations/              # Database migrations
+│   └── templates/
+│       └── core/                # HTML templates for UI
+│           ├── base.html
+│           ├── home.html
+│           ├── register.html
+│           ├── new_patient.html
+│           ├── patient_detail.html
+│           └── (other pages...)
+│   └── static/
+│       └── core/
+│           ├── css/            # Custom styles
+│           ├── js/             # JS for UI interactivity
+│           ├── images/         # Static images (e.g., logo, doctor image)
+│           └── data/           # JSON files for drug lists & substitutions
+│
+├── data/
+│   └── drug_substitutions.json # Drug substitution mappings
+│
+├── pharmacy_project/           # Django project folder
+│   ├── settings.py             # Global configuration
+│   ├── urls.py                 # Root URL configuration
+│   ├── wsgi.py / asgi.py       # Deployment entry points
+│
+├── db.sqlite3                  # SQLite database
+├── manage.py                   # Django management script
+└── requirements.txt            # Python dependencies
 
 ```
-├── core/
-│   ├── models.py            # Patient & Prescription models
-│   ├── views.py             # All logic (register, add/edit prescription, verification)
-│   ├── utils.py             # Drug substitution, pricing, email, CSV
-│   ├── forms.py             # Django forms
-│   ├── templates/
-│   ├── static/
-│   └── urls.py              # Core app URL routing
-├── pharmacy_project/
-│   ├── settings.py
-│   └── urls.py              # Project-wide URLs
-├── db.sqlite3
-└── manage.py
-```
-
 ---
 
 ## 🔐 Access Levels
