@@ -135,9 +135,11 @@ Make sure to use an **App Password** from Gmail.
 
 ## 👨‍💻 Contributors
 
-- **Doctor Interface** – Enoch  
-- **Pharmacy Integration** – Teo  
-- **Frontend Styling & Email** – Alex  
+- **Backend Engineer** – Eniola Irinoye
+- **Backend Engineer** – Enoch  Owoade
+- **Database Engineer** – Eniola Akinpelumi  
+- **Front-end developer** – Abraham Ochelle
+- **UI Designer** – Vanessa Ezeh
 
 ---
 
