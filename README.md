@@ -1,11 +1,11 @@
 
 # 💊 CS-PHARMACY: Virtual Hospital Prescription System
 
-A Django-based web application that allows **doctors** to manage patients, handle prescriptions, check for **controlled substances**, substitute medication when necessary, and **send prescriptions to a pharmacy** for verification. The system also sends email confirmations and helps pharmacists verify medications in a secure, centralized dashboard.
+A Django-based web application that allows doctors to manage patients, handle prescriptions, check for **controlled substances**, substitute medication when necessary, and **send prescriptions to a pharmacy** for verification. The system also sends email confirmations and helps pharmacists verify medications in a secure, centralized dashboard.
 
 ---
 
-## 🏁 How to Run the Project
+##  How to Run the Project
 
 1. **Clone the repository**:
    ```bash
@@ -45,7 +45,7 @@ A Django-based web application that allows **doctors** to manage patients, handl
 
 ---
 
-## 🧠 Project Workflow
+##  Project Workflow
 
 ### ➕ 1. Register Patients
 - Doctors can register a new patient using the **"Register New Patient"** form.
@@ -78,7 +78,7 @@ A Django-based web application that allows **doctors** to manage patients, handl
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 ```
 CS-PHARMACY/
 ├── core/                         # Main Django app
@@ -122,7 +122,7 @@ CS-PHARMACY/
 ```
 ---
 
-## 🔐 Access Levels
+##  Access Levels
 
 - **Doctors**: Register patients, add prescriptions, send to pharmacy
 - **Pharmacists**: View & verify prescriptions via dashboard
@@ -130,7 +130,7 @@ CS-PHARMACY/
 
 ---
 
-## 🌟 Features
+## Features
 
 - ✅ User authentication (login/register)
 - ✅ Controlled drug detection & substitution
@@ -142,7 +142,7 @@ CS-PHARMACY/
 
 ---
 
-## 📬 Email Setup (Gmail)
+##  Email Setup (Gmail)
 
 In `settings.py`, add:
 ```python
@@ -157,7 +157,7 @@ Make sure to use an **App Password** from Gmail.
 
 ---
 
-## 👨‍💻 Contributors
+##  Contributors
 
 - **Backend Engineer** – Eniola Irinoye
 - **Backend Engineer** – Enoch  Owoade
@@ -167,7 +167,7 @@ Make sure to use an **App Password** from Gmail.
 
 ---
 
-## 📌 Future Improvements
+##  Future Improvements
 
 - PDF export for prescriptions  
 - Admin-level analytics for prescription trends  
