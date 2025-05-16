@@ -55,19 +55,19 @@ A Django-based web application that allows doctors to manage patients, handle pr
 - Use the **Search Patients** page to retrieve a list of registered patients.
 - Click on a patient to view all prescriptions.
 
-### 💊 3. Add a Prescription
+### 3. Add a Prescription
 - When adding a new prescription:
   - The system **checks if the drug is controlled**.
   - If so, it substitutes it automatically and **notifies the doctor** via a message.
   - It then calculates the **price** based on the updated drug.
 
-### 🚀 4. Send Prescription to Pharmacy
+###  4. Send Prescription to Pharmacy
 - Each prescription can be **sent to a pharmacy** for verification.
 - Sent prescriptions are marked as:
   - ✅ Sent
   - ⚠️ Pending or ✔️ Verified (depending on pharmacy response)
 
-### 🧪 5. Pharmacy Dashboard
+###  5. Pharmacy Dashboard
 - Pharmacists can log in and access the **Pharmacy Dashboard** to:
   - View all sent prescriptions
   - Verify a prescription
@@ -132,13 +132,13 @@ CS-PHARMACY/
 
 ## Features
 
-- ✅ User authentication (login/register)
-- ✅ Controlled drug detection & substitution
-- ✅ Dynamic price calculation
-- ✅ Prescription email notifications
-- ✅ Interactive Bootstrap UI
-- ✅ Pharmacy verification system
-- ✅ Admin panel (`/admin/`) for backend inspection
+-  User authentication (login/register)
+-  Controlled drug detection & substitution
+-  Dynamic price calculation
+-  Prescription email notifications
+-  Interactive Bootstrap UI
+-  Pharmacy verification system
+-  Admin panel (`/admin/`) for backend inspection
 
 ---
 
