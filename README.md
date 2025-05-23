@@ -64,8 +64,8 @@ A Django-based web application that allows doctors to manage patients, handle pr
 ###  4. Send Prescription to Pharmacy
 - Each prescription can be **sent to a pharmacy** for verification.
 - Sent prescriptions are marked as:
-  - ✅ Sent
-  - ⚠️ Pending or ✔️ Verified (depending on pharmacy response)
+  -  Sent
+  -  Pending or  Verified (depending on pharmacy response)
 
 ###  5. Pharmacy Dashboard
 - Pharmacists can log in and access the **Pharmacy Dashboard** to:
