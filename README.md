@@ -47,11 +47,11 @@ A Django-based web application that allows doctors to manage patients, handle pr
 
 ##  Project Workflow
 
-### ➕ 1. Register Patients
+### 1. Register Patients
 - Doctors can register a new patient using the **"Register New Patient"** form.
 - Each patient has their name, DOB, contact info, insurance, and email.
 
-### 🔍 2. Search & View Patients
+###  2. Search & View Patients
 - Use the **Search Patients** page to retrieve a list of registered patients.
 - Click on a patient to view all prescriptions.
 
