@@ -1,7 +1,7 @@
 
 # 💊 CS-PHARMACY: Virtual Hospital Prescription System
 
-A Django-based web application that allows doctors to manage patients, handle prescriptions, check for **controlled substances**, substitute medication when necessary, and **send prescriptions to a pharmacy** for verification. The system also sends email confirmations and helps pharmacists verify medications in a secure, centralized dashboard.
+A Django-based web application that allows doctors to manage patients, handle prescriptions, check for **controlled substances**, substitute medication when necessary, and **send prescriptions to a pharmacy** for verification. The system also sends email confirmations and assists pharmacists verify medications in a secure, centralized dashboard.
 
 ---
 
