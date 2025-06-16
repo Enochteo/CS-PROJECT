@@ -4,6 +4,11 @@
 A Django-based web application that allows doctors to manage patients, handle prescriptions, check for **controlled substances**, substitute medication when necessary, and **send prescriptions to a pharmacy** for verification. The system also sends email confirmations and assists pharmacists verify medications in a secure, centralized dashboard.
 
 ---
+## Live Deployed Web app link
+[https://eevapharmac](https://eevaprescriptions.pythonanywhere.com/)
+**Steps to access**
+- Create an account with a valid email.
+- Login using that email.
 
 ##  How to Run the Project
 
@@ -41,7 +46,7 @@ A Django-based web application that allows doctors to manage patients, handle pr
    ```
 
 7. **Login at**:  
-   http://127.0.0.1:8000/login/ (as a doctor)
+   /login (route for as a doctor)
 
 ---
 
