@@ -5,7 +5,7 @@ A Django-based web application that allows doctors to manage patients, handle pr
 
 ---
 ## Live Deployed Web app link
-[https://eevapharmac](https://eevaprescriptions.pythonanywhere.com/)
+[https://eevaprescriptions.pythonanywhere.com](https://eevaprescriptions.pythonanywhere.com/)
 **Steps to access**
 - Create an account with a valid email.
 - Login using that email.
@@ -81,6 +81,18 @@ A Django-based web application that allows doctors to manage patients, handle pr
 ### 6. Email Integration
 - Upon pharmacy verification, the patient receives a **confirmation email** with prescription details.
 
+---
+---
+## Screenshots
+Login Page:
+![Login Page](<Screenshot 2025-06-16 at 5.16.23 PM.png>)
+New-User registration page:
+![Register](image.png)
+Landing page:
+![Landing page 1](image-1.png)
+![Landing page 2](image-2.png)
+Registering a new patient:
+![Register patient](image-3.png)
 ---
 
 ##  Project Structure

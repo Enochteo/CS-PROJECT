@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Patient</title>
+</head>
+<body>
+    <h1>Search Patients</h1>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Enter patient name">
+    <button type="submit">Search</button>
+</form>
+
+{% if results %}
+    <h2>Results:</h2>
+    <ul>
+    {% for patient in results %}
+        <li>
+            <a href="{% url 'patient_detail' patient.id %}">
+                {{ patient.name }} ({{ patient.date_of_birth }})
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% elif request.GET.q %}
+    <p>No patients found.</p>
+{% endif %}
+</body>
+</html>
