@@ -11,7 +11,7 @@ A Django-based web application that allows doctors to manage patients, handle pr
 - Create an account with a valid email.
 - Login using that email.
 
-##  How to Run the Project
+##  How to Run the App locally
 
 1. **Clone the repository**:
    ```bash
