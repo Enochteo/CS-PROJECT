@@ -73,7 +73,7 @@ A Django-based web application that allows doctors to manage patients, handle pr
   - Verify a prescription
   - Confirm substitutions and controlled drug handling
 
-### 📧 6. Email Integration
+### 6. Email Integration
 - Upon pharmacy verification, the patient receives a **confirmation email** with prescription details.
 
 ---
