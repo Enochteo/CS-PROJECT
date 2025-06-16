@@ -6,6 +6,7 @@ A Django-based web application that allows doctors to manage patients, handle pr
 ---
 ## Live Deployed Web app link
 [https://eevaprescriptions.pythonanywhere.com](https://eevaprescriptions.pythonanywhere.com/)
+---
 **Steps to access**
 - Create an account with a valid email.
 - Login using that email.
