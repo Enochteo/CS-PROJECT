@@ -178,7 +178,7 @@ Make sure to use an **App Password** from Gmail.
 ##  Contributors
 
 - **Backend Engineer** – Eniola Irinoye
-- **Backend Engineer** – Enoch  Owoade
+- **Backend & Database Engineer** – Enoch  Owoade
 - **Database Engineer** – Eniola Akinpelumi  
 - **Full Stack developer** – Abraham Ochelle
 - **UI Designer** – Vanessa Ezeh
