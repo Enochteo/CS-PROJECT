@@ -9,7 +9,7 @@ A Django-based web application that allows doctors to manage patients, handle pr
 ---
 **Steps to access**
 - Create an account with a valid email.
-- Login using that email.
+- Login using that email
 
 ##  How to Run the App locally
 
